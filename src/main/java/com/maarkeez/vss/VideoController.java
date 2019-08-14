@@ -29,6 +29,7 @@ public class VideoController {
         InputStream videoStream = videoFile.getInputStream();
 
         return ResponseEntity.ok()
+                .contentLength(videoStream.available())
                 .contentType(MediaType.valueOf("video/mp4"))
                 .body(new InputStreamResource(videoStream));
     }
