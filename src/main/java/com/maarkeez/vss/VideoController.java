@@ -11,11 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-
-import static java.nio.file.Files.readAllBytes;
 
 @Service
 @RestController
@@ -29,11 +26,9 @@ public class VideoController {
     @GetMapping("/vss/api/video/random")
     public ResponseEntity<InputStreamResource> randomVideo() throws IOException {
 
-        byte[] videoBytes = readAllBytes(videoFile.getFile().toPath());
-        InputStream videoStream = new ByteArrayInputStream(videoBytes);
+        InputStream videoStream = videoFile.getInputStream();
 
         return ResponseEntity.ok()
-                .contentLength(videoBytes.length)
                 .contentType(MediaType.APPLICATION_OCTET_STREAM)
                 .body(new InputStreamResource(videoStream));
     }
