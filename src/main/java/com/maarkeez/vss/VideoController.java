@@ -23,7 +23,7 @@ public class VideoController {
     private Resource videoFile;
 
     @ResponseBody
-    @GetMapping("/vss/api/video/random")
+    @GetMapping("/vss/api/video/random.mp4")
     public ResponseEntity<InputStreamResource> randomVideo() throws IOException {
 
         InputStream videoStream = videoFile.getInputStream();
