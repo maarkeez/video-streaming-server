@@ -29,7 +29,7 @@ public class VideoController {
         InputStream videoStream = videoFile.getInputStream();
 
         return ResponseEntity.ok()
-                .contentType(MediaType.APPLICATION_OCTET_STREAM)
+                .contentType(MediaType.valueOf("video/mp4"))
                 .body(new InputStreamResource(videoStream));
     }
 }
