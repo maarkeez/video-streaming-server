@@ -12,5 +12,6 @@ import lombok.NoArgsConstructor;
 public class Serie {
     private String name;
     private String folderName;
+    private boolean hasDisplayImageUrl;
     private String displayImageUrl;
 }
