@@ -1,9 +1,8 @@
 package com.maarkeez.vss.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import java.util.List;
 
 @Data
 @Builder
@@ -14,4 +13,6 @@ public class Serie {
     private String folderName;
     private boolean hasDisplayImageUrl;
     private String displayImageUrl;
+    @Singular
+    private List<Season> seasons;
 }
